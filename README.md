@@ -2,6 +2,14 @@
 
 Tools and data gathered in comparing the OpenLMIS/master branch and eLMIS/master branch.
 
+## code
+
+### OpenLMIS code changed in eLMIS stats
+
+Requires:  eLMIS/master as elmis-master branch and OpenLMIS/master as master branch
+To generate:  `git diff --numstat --diff-filter=M master..elmis-master`
+Output:  file openlmis-code-changed-stats.xls
+
 ## db
 
 This compares the OpenLMIS/master schema with the eLMIS/master schema as generated from fresh builds.
