@@ -2256,16 +2256,6 @@ CREATE TABLE vw_order_fill_rate_details (
 	approved integer
 );
 
-ALTER TABLE dosage_units
-	DROP COLUMN createdby,
-	DROP COLUMN modifiedby,
-	DROP COLUMN modifieddate;
-
-ALTER TABLE facility_types
-	DROP COLUMN createdby,
-	DROP COLUMN modifiedby,
-	DROP COLUMN modifieddate;
-
 ALTER TABLE program_products
 	ADD COLUMN fullsupply boolean;
 
@@ -2275,21 +2265,8 @@ ALTER TABLE programs
 ALTER TABLE requisition_line_items
 	ALTER COLUMN maxmonthsofstock TYPE integer /* TYPE change - table: requisition_line_items original: numeric(4,2) new: integer */;
 
-ALTER TABLE epi_inventory_line_items
-	DROP COLUMN idealquantitybypacksize;
-
 ALTER TABLE facility_approved_products
 	ALTER COLUMN maxmonthsofstock TYPE integer /* TYPE change - table: facility_approved_products original: numeric(4,2) new: integer */;
-
-ALTER TABLE facility_operators
-	DROP COLUMN createdby,
-	DROP COLUMN modifiedby,
-	DROP COLUMN modifieddate;
-
-ALTER TABLE geographic_levels
-	DROP COLUMN createdby,
-	DROP COLUMN modifiedby,
-	DROP COLUMN modifieddate;
 
 ALTER TABLE master_rnr_columns
 	ADD COLUMN calculationoption character varying(200) DEFAULT 'DEFAULT'::character varying;
@@ -2299,11 +2276,6 @@ ALTER TABLE orders
 
 ALTER TABLE pod
 	ALTER COLUMN ordernumber SET DEFAULT 0;
-
-ALTER TABLE product_forms
-	DROP COLUMN createdby,
-	DROP COLUMN modifiedby,
-	DROP COLUMN modifieddate;
 
 ALTER TABLE program_rnr_columns
 	ADD COLUMN calculationoption character varying(200) DEFAULT 'DEFAULT'::character varying;
@@ -2324,9 +2296,6 @@ ALTER TABLE shipment_line_items
 ALTER TABLE supply_lines
 	ADD COLUMN parentid integer,
 	ALTER COLUMN supervisorynodeid DROP NOT NULL;
-
-ALTER TABLE template_parameters
-	DROP COLUMN selectsql;
 
 ALTER SEQUENCE alert_facility_stockedout_id_seq
 	OWNED BY alert_facility_stockedout.id;
